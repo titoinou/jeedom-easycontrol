@@ -1,0 +1,33 @@
+<div style="width:90px; min-height:80px;" class="cmd tooltips cmd-widget cursor" data-type="action" data-subtype="other" data-cmd_id="#id#" data-cmd_uid="#uid#">
+	<center>
+		<span class="cmdName" style="font-weight: bold;font-size : 12px;#hideCmdName#;margin-bottom:3px;display:inline-block">#valueName#</span><br>
+		<span style="font-size: 2.5em; font-weight: bold; margin-top: 5px;" class="imgCmd"></span>
+	</center>
+	<script>
+	if('#name#' == 'Absent'){
+		$('.cmd[data-cmd_uid=#uid#] .imgCmd').append('<img src="plugins/easycontrol/core/template/images/presence.png" width="40px">');
+	}else{
+		$('.cmd[data-cmd_uid=#uid#] .imgCmd').append('<img src="plugins/easycontrol/core/template/images/absence.png" width="40px">');
+	}
+	
+	jeedom.cmd.update['#id#'] = function(_options){
+		if('#name#' == 'Absent'){
+		  if(_options.display_value == 'Présent' ) {
+			  $('.cmd[data-cmd_uid=#uid#]').show();
+		  }else{
+			  $('.cmd[data-cmd_uid=#uid#]').hide();
+		  }
+		}else{
+		  if(_options.display_value == 'Absent' ) {
+				$('.cmd[data-cmd_uid=#uid#]').show();
+			}else{
+				$('.cmd[data-cmd_uid=#uid#]').hide();
+			}
+		}
+	}
+	jeedom.cmd.update['#id#']({display_value:'#state#'});
+	$('.cmd[data-cmd_uid=#uid#] .imgCmd').on('click', function () {
+		jeedom.cmd.execute({id: '#id#'});
+	});
+	</script>
+</div>

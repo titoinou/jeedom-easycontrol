@@ -1,0 +1,71 @@
+{
+    "plugins\/elmtouch\/desktop\/php\/elmtouch.php": {
+        "Rechercher": "Search",
+        "Mon thermostat ELM Touch": "My ELM Touch thermostat",
+        "Gestion": "Management",
+        "Ajouter": "Add",
+        "Général": "General",
+        "Nom de l'équipement ELM Touch": "ELM Touch device name",
+        "Objet parent": "Parent object",
+        "Catégorie": "Category",
+        "Sauvegarder": "Save",
+        "Supprimer": "Delete",
+        "Aucun": "None",
+        "Activer": "Enable",
+        "Visible": "Visible",
+        "Configuration": "Setup",
+        "Dupliquer": "Duplicate",
+        "Autoriser": "Autorize",
+        "Numéro de série": "Serial number",
+        "Voir notice ou au dos": "See instructions or on the back",
+        "Clé d'accès": "Access key",
+        "Mot de passe": "Password",
+        "Mot de passe choisi sur le smartphone": "Password chosen on the smartphone",
+        "Avancée": "Advanced",
+        "Type": "Type",
+        "Nom": "Name",
+        "Action": "Action",
+        "Auto-actualisation (cron)": "Auto-refresh (cron)"
+    },
+
+    "plugins\/elmtouch\/core\/ajax\/elmtouch.ajax.php": {
+        "Aucune méthode correspondante à : ": "No method corresponding to:",
+        "401 - Accès non autorisé": "401 - Unauthorized Access"
+    },
+
+    "plugins\/elmtouch\/core\/class\/elmtouch.class.php": {
+        "Veuillez vérifier la configuration": "Please check configuration",
+        "ELM Touch": "ELM Touch",
+        "Consigne": "Temperature setpoint",
+        "Température": "Temperature",
+        "Température extérieure": "Outside temperature",
+        "Température eau de chauffage": "Water temperature",
+        "Consommation chauffage en kWh": "Heating consumption in kWh",
+        "Consommation eau chaude en kWh": "Hot water consumption in kWh",
+        "Consommation jour en kWh": "Daily consumption in kWh",
+        "Température extérieure moyenne": "Average outdoor temperature",
+        "Consommation chauffage en m3": "Heating consumption in m3",
+        "Consommation eau chaude en m3": "Hot water consumption in m3",
+        "Consommation jour en m3": "Daily consumption in m3",
+        "Consommation chauffage en euro": "Heating consumption in euro",
+        "Consommation eau chaude en euro": "Hot water consumption in euro",
+        "Consommation jour en euro": "Daily consumption in euros",
+        "Etat chaudière": "Boiler status",
+        "Eau chaude": "Hot water",
+        "Chauffage actif": "Heating active",
+        "Verrouillage": "Locking",
+        "Mode programme": "Program mode",
+        "Mode": "Mode",
+        "Aucun": "None",
+        "Off": "Off",
+        "Statut": "Status",
+        "Arrêt": "Stop",
+        "Inconnu": "Unknown",
+        "Expression cron non valide pour ": "Invalid cron expression for"
+    },
+
+    "plugins\/elmtouch\/desktop\/js\/elmtouch.js": {
+        "Nom": "Name",
+        "Tester": "Test"
+    }
+}
