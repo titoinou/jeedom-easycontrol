@@ -1,16 +1,31 @@
-PROGRESS_FILE=/tmp/dependancy_easycontrol_in_progress
-if [ ! -z $1 ]; then
-	PROGRESS_FILE=$1
-fi
-touch ${PROGRESS_FILE}
-echo 0 > ${PROGRESS_FILE}
+#!/bin/bash
+######################### INCLUSION LIB ##########################
+BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+wget https://raw.githubusercontent.com/NebzHB/dependance.lib/master/dependance.lib -O $BASEDIR/dependance.lib &>/dev/null
+PLUGIN=$(basename "$(realpath $BASEDIR/..)")
+. ${BASEDIR}/dependance.lib
+##################################################################
+wget https://raw.githubusercontent.com/NebzHB/nodejs_install/main/install_nodejs.sh -O $BASEDIR/install_nodejs.sh &>/dev/null
+
+installVer='14' 	#NodeJS major version to be installed
+
+pre
+step 0 "Vérification des droits"
 silent sudo killall bosch-xmpp
-echo "Mise à jour APT et installation des packages nécessaires"
-sudo apt-get clean
-echo 30 > ${PROGRESS_FILE}
-sudo apt-get update
-echo 60 > ${PROGRESS_FILE}
-echo "Nettoyage anciens modules"
+DIRECTORY="/var/www"
+if [ ! -d "$DIRECTORY" ]; then
+	silent sudo mkdir $DIRECTORY
+fi
+silent sudo chown -R www-data $DIRECTORY
+
+step 5 "Mise à jour APT et installation des packages nécessaires"
+try sudo apt-get update
+try sudo DEBIAN_FRONTEND=noninteractive apt-get install -y lsb-release
+
+#install nodejs, steps 10->50
+. ${BASEDIR}/install_nodejs.sh ${installVer}
+
+step 60 "Nettoyage anciens modules"
 sudo npm ls -g --depth 0 2>/dev/null | grep "bosch-xmpp@" >/dev/null 
 if [ $? -ne 1 ]; then
   echo "[Suppression bosch-xmpp global"
@@ -20,12 +35,18 @@ cd ${BASEDIR};
 #remove old local modules
 sudo rm -rf node_modules &>/dev/null
 sudo rm -f package-lock.json &>/dev/null
-echo 75 > ${PROGRESS_FILE}
-echo "Installation de Bosch XMPP, veuillez patienter"
+
+step 70 "Installation de Bosch XMPP, veuillez patienter svp"
+#need to be sudoed because of recompil
 silent sudo mkdir node_modules
 silent sudo chown -R www-data:www-data .
+
 sudo npm install -g bosch-xmpp
 serverversion=`bosch-xmpp -v`;
-echo 100 > ${PROGRESS_FILE}
-echo "Bosch XMPP version ${serverversion} installé."
-rm ${PROGRESS_FILE}
+step 80 "Bosch XMPP version ${serverversion} installé."
+
+
+silent sudo chown -R www-data:www-data .
+
+
+post
