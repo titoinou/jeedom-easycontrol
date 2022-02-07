@@ -1,6 +1,9 @@
 {
   "pre-install": {
   },
+  "npm": {
+	  "bosch-xmpp@latest": {"reinstall":true}
+  },
   "post-install": {
   }
 }
