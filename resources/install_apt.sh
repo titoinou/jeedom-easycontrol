@@ -26,8 +26,6 @@ silent sudo mkdir node_modules
 silent sudo chown -R www-data:www-data .
 sudo npm install -g bosch-xmpp
 serverversion=`bosch-xmpp -v`;
-sudo apt-get install -y libsox-fmt-mp3 sox libttspico-utils
-echo "Bosch XMPP version ${serverversion} installé."
 echo 100 > ${PROGRESS_FILE}
 echo "Bosch XMPP version ${serverversion} installé."
 rm ${PROGRESS_FILE}
