@@ -157,14 +157,7 @@ class easycontrol extends eqLogic {
     }
 
     public static function dependancy_install() {
-        //if (file_exists(jeedom::getTmpFolder('easycontrol') . '/dependance')) {
-        //    return;
-        //}
         log::remove(__CLASS__ . '_update');
-        //$update=update::byTypeAndLogicalId('plugin','easycontrol');
-        //$ver=$update->getLocalVersion();
-        //$conf=$update->getConfiguration();
-        //shell_exec('echo "'."== Jeedom ".jeedom::version()." sur ".trim(shell_exec("lsb_release -d -s")).'/'.trim(shell_exec('dpkg --print-architecture')).'/'.trim(shell_exec('arch')).'/'.trim(shell_exec('getconf LONG_BIT'))."bits aka '".jeedom::getHardwareName()."' avec nodeJS ".trim(shell_exec('nodejs -v'))." et jsonrpc:".config::byKey('api::core::jsonrpc::mode', 'core', 'enable')." et easycontrol (".$conf['version'].") ".$ver.'" >> '.log::getPathToLog(__CLASS__ . '_update'));
         return array('script' => dirname(__FILE__) . '/../../resources/install_#stype#.sh ' . jeedom::getTmpFolder(__CLASS__) . '/dependance', 'log' => log::getPathToLog(__CLASS__ . '_update'));
     }
     /*     * *********************Méthodes d'instance************************* */
