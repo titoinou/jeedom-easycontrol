@@ -168,8 +168,8 @@ class easycontrol extends eqLogic {
 
     public function preSave() {
         if ($this->getConfiguration('autorefresh') == '') {
-            //$this->setConfiguration('autorefresh', '*/5 * * * *');
-            $this->setConfiguration('autorefresh', '* * * * *');
+            $this->setConfiguration('autorefresh', '*/5 * * * *');
+            //$this->setConfiguration('autorefresh', '* * * * *');
 	}
         if ($this->getConfiguration('cron_isEnable',"initial") == 'initial') {
             $this->setConfiguration('cron_isEnable', 1);
